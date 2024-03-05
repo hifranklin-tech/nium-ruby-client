@@ -6,3 +6,6 @@ openapi-generator generate \
   --output . \
   --package-name=nium \
   --additional-properties="moduleName=NiumClient"
+
+# Fix multi ApiError class
+rm ./lib/nium_client/models/api_error.rb
