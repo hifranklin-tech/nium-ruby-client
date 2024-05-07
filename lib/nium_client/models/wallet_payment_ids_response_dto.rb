@@ -76,7 +76,10 @@ module NiumClient
       end
 
       def valid?(value)
-        !value || allowable_values.include?(value)
+        return true if !value
+        return allowable_values.map(&:downcase).include?(value.downcase) if datatype == 'String'
+
+        allowable_values.include?(value)
       end
     end
 
