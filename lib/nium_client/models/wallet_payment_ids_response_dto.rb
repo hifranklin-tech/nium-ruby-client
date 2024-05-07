@@ -70,16 +70,13 @@ module NiumClient
           when /Float/i
             value.to_f
           else
-            value
+            value.to_s.downcase
           end
         end
       end
 
       def valid?(value)
-        return true if !value
-        return allowable_values.map(&:downcase).include?(value.downcase) if datatype == 'String'
-
-        allowable_values.include?(value)
+        return !value || allowable_values.include?(value.try(:downcase) || value)
       end
     end
 
