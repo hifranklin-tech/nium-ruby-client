@@ -238,7 +238,7 @@ module NiumClient
     def account_category=(account_category)
       validator = EnumAttributeValidator.new('String', ["SELF_FUNDING_ACCOUNT", "COLLECTION_ACCOUNT"])
       unless validator.valid?(account_category)
-        fail ArgumentError, "invalid value for \"account_category\", must be one of #{validator.allowable_values}."
+        fail ArgumentError, "invalid value \"#{account_category}\" for \"account_category\", must be one of #{validator.allowable_values}."
       end
       @account_category = account_category
     end
@@ -248,7 +248,7 @@ module NiumClient
     def status=(status)
       validator = EnumAttributeValidator.new('String', ["ACTIVE", "INACTIVE", "BLOCKED", "SUSPENDED", "UPLOADED", "APPROVED", "REJECTED", "FAILED", "SUCCESS", "FAILURE", "PARTIALLY SUCCESS", "SYNC", "NOT SYNC", "PENDING", "REQUIRES_ACTION", "CLEAR", "DECLINED", "ACCOUNT_BLOCKED", "AMOUNT_BLOCKED"])
       unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+        fail ArgumentError, "invalid value \"#{status}\" for \"status\", must be one of #{validator.allowable_values}."
       end
       @status = status
     end
